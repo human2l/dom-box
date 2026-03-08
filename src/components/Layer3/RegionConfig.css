@@ -1,0 +1,111 @@
+.region-selects {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.region-select-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.region-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+}
+
+.select-wrapper {
+  position: relative;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-surface);
+  transition: border-color var(--transition-fast), opacity var(--transition-fast);
+  overflow: hidden;
+}
+
+.select-wrapper:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-glow);
+}
+
+.select-wrapper.has-value {
+  border-color: var(--color-border);
+}
+
+.select-wrapper.resolved {
+  border-color: var(--color-success);
+  background: var(--color-success-bg);
+}
+
+.select-wrapper.dimmed {
+  opacity: 0.4;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+  font-size: 12px;
+}
+
+.region-select {
+  width: 100%;
+  padding: 9px 32px 9px 12px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-text-primary);
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.region-select:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-muted);
+}
+
+.region-select option {
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+}
+
+/* Error */
+.region-error {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  background: var(--color-danger-bg);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: var(--radius-sm);
+  animation: errorShake 0.3s ease;
+}
+
+@keyframes errorShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.region-error-icon {
+  color: var(--color-danger);
+  flex-shrink: 0;
+  font-size: 13px;
+  margin-top: 1px;
+}
+
+.region-error-text {
+  font-size: 11px;
+  color: var(--color-danger);
+  line-height: 1.5;
+}

@@ -1,0 +1,136 @@
+.header {
+  grid-area: header;
+  background: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  gap: 16px;
+  transition: background var(--transition-slow), border-color var(--transition-slow);
+}
+
+.header-ticket {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.header-ticket-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: tickerPulse 2s ease-in-out infinite;
+}
+
+.header-ticket-indicator.high {
+  background: var(--color-danger);
+  box-shadow: 0 0 8px var(--color-danger);
+}
+
+.header-ticket-indicator.medium {
+  background: var(--color-warning);
+  box-shadow: 0 0 8px var(--color-warning);
+  animation-duration: 3s;
+}
+
+.header-ticket-indicator.resolved {
+  background: var(--color-success);
+  box-shadow: 0 0 8px var(--color-success);
+  animation: none;
+}
+
+@keyframes tickerPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.header-ticket-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.header-ticket-id {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.header-ticket-desc {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-ticket-badge {
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: all var(--transition-base);
+}
+
+.header-ticket-badge.high {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 1px solid rgba(239,68,68,0.25);
+}
+
+.header-ticket-badge.medium {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+  border: 1px solid rgba(245,158,11,0.25);
+}
+
+.header-ticket-badge.resolved {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid rgba(34,197,94,0.25);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-module-count {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.header-module-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  transition: color var(--transition-base);
+}
+
+.header-module-total {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.header-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-accent-glow);
+  border: 1px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-accent);
+}
